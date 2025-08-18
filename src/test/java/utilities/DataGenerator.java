@@ -132,6 +132,7 @@ package utilities;
 
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.nio.file.Paths;
 import java.util.Properties;
 
 
@@ -179,11 +180,11 @@ public class DataGenerator {
         user.machineName     = FakerUtils.getMachineName();
         user.machineCost     = FakerUtils.getMachineCost();
         
-        user.utilizationCertificatePath = "C:\\Users\\rajso\\Downloads\\Utilization-Certificate.pdf";
-        user.machineToolsPath = "C:\\Users\\rajso\\Downloads\\Machinetools photo.jpg";
-        user.shedPhotoPath = "C:\\Users\\rajso\\Downloads\\shed photo.jpg";
+        String basePath = Paths.get("src/test/resources/testfiles").toAbsolutePath().toString();
 
-
+        user.utilizationCertificatePath = Paths.get(basePath, "Utilization-Certificate.pdf").toString();
+        user.machineToolsPath = Paths.get(basePath, "Machinetools photo.jpg").toString();
+        user.shedPhotoPath = Paths.get(basePath, "shed photo.jpg").toString();						
 
         
         return user;
