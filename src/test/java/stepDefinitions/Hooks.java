@@ -24,10 +24,10 @@ public class Hooks {
 	public void setup(Scenario scenario) {
 
 		//🔧 Initialize browser from TestBase for registration
-		//TestBase.initialization("registration_url");
+		TestBase.initialization("registration_url");
 
 		// 🔧 Initialize browser from TestBase for login
-		   TestBase.initialization("login_url");
+		  // TestBase.initialization("login_url");
 		   driver = TestBase.driver;
 
 		// 📊 Start Extent Report logging

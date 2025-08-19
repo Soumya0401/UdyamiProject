@@ -72,9 +72,9 @@ public class UCUpload {
         addUtilizationDetails.click();
         logger.info("➕ Clicked on 'Add Utilization Details'");
         
-       // utilizationCertificate.click();
-        // machineTools.click();
-         //shedPhoto.click();
+
+//         machineTools.click();
+//         shedPhoto.click();
         
         
       
@@ -96,11 +96,11 @@ public class UCUpload {
         ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 450);");
         Thread.sleep(1000);
         
-//        utilizationCertificate.click();
-//        utilizationCertificate.sendKeys(data.utilizationCertificatePath);
-//        
-//        machineTools.sendKeys(data.machineToolsPath);
-//        shedPhoto.sendKeys(data.shedPhotoPath);
+        utilizationCertificate.click();
+        utilizationCertificate.sendKeys(data.utilizationCertificatePath);
+        
+        machineTools.sendKeys(data.machineToolsPath);
+        shedPhoto.sendKeys(data.shedPhotoPath);
          logger.info("➕ Utilization images Uploaded successfully'");
       
          
