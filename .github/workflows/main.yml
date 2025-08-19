@@ -2,14 +2,16 @@ name: Udyami Project
 
 on:
   push:
-    branches: [ main, master ]
+    branches:
+      - main
   pull_request:
-    branches: [ main, master ]
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
   build-and-test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest  # Windows runner
 
     steps:
       # Step 1: Checkout repo
@@ -23,26 +25,20 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           cache: maven
-
-      # Step 3: Install Chrome (latest stable)
-      - name: Install Chrome
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
-
-      # Step 4: Verify Chrome installation
+          
+      # Step 3: Verify Chrome installation
       - name: Verify Chrome installation
         run: google-chrome --version
 
-      # Step 5: Build with Maven (skip tests first)
+      # Step 4: Build with Maven (skip tests first)
       - name: Build with Maven
         run: mvn clean install -DskipTests=true
 
-      # Step 6: Run Selenium/Cucumber Tests (headless mode)
+      # Step 5: Run Selenium/Cucumber Tests (headless mode)
       - name: Run Cucumber/Selenium Tests
         run: mvn test -Dheadless=true
 
-      # Step 7: Upload test reports
+      # Step 6: Upload test reports
       - name: Upload Test Reports
         uses: actions/upload-artifact@v4
         with:
