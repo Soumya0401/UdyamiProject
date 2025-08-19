@@ -28,7 +28,9 @@ jobs:
           
       # Step 3: Verify Chrome installation
       - name: Verify Chrome installation
-        run: google-chrome --version
+        run: |
+          & "C:\Program Files\Google\Chrome\Application\chrome.exe" --version
+
 
       # Step 4: Build with Maven (skip tests first)
       - name: Build with Maven
